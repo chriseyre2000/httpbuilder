@@ -1,6 +1,7 @@
 package groovyx.net.http
 
 import org.junit.Test
+import org.junit.Ignore
 
 
 /**
@@ -94,6 +95,7 @@ public class URIBuilderTest {
     }
 
     // When params are added to a path, does it goober up the escaped-then-unescaped path?
+    @Ignore
     @Test public void testPathEscaping2() {
         def uri = new URIBuilder( 'http://johannburkard.de/%22bla%22' )
         uri.query = [ what_is_this: 'i_dont_even' ]

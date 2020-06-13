@@ -617,12 +617,12 @@ public class HTTPBuilder {
             //If response is streaming, buffer it in a byte array:
             if ( parsedData instanceof InputStream ) {
                 ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-                DefaultGroovyMethods.leftShift( buffer, (InputStream)parsedData );
+                StreamHelper.leftShift( buffer, (InputStream)parsedData );
                 parsedData = new ByteArrayInputStream( buffer.toByteArray() );
             }
             else if ( parsedData instanceof Reader ) {
                 StringWriter buffer = new StringWriter();
-                DefaultGroovyMethods.leftShift( buffer, (Reader)parsedData );
+                StreamHelper.leftShift( buffer, (Reader)parsedData );
                 parsedData = new StringReader( buffer.toString() );
             }
             else if ( parsedData instanceof Closeable )

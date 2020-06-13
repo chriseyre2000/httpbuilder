@@ -45,7 +45,7 @@ class GAETest {
     /**
      * This method will parse the content based on the response content-type
      */
-    @Test public void testGET() {
+    @Test void testGET() {
         def http = newBuilder('http://www.google.com')
         http.get( path:'/search', query:[q:'Groovy'],
                 headers:['User-Agent':"Firefox"] ) { resp, html ->
@@ -60,7 +60,7 @@ class GAETest {
         }
     }
 
-    @Test public void testDefaultSuccessHandler() {
+    @Test void testDefaultSuccessHandler() {
         def http = newBuilder('http://www.google.com')
         def html = http.request( GET ) {
             headers = ['User-Agent':"Firefox"]
@@ -146,6 +146,7 @@ class GAETest {
      * This method is similar to the above, but it will will parse the content
      * based on the given content-type, i.e. TEXT (text/plain).
      */
+    @Ignore
     @Test public void testReader() {
         def http = newBuilder('http://examples.oreilly.com')
         http.get( uri:'http://examples.oreilly.com/9780596002527/examples/first.xml',
@@ -172,7 +173,8 @@ class GAETest {
      * Tests POST with XML response, and DELETE with a JSON response.
      */
 
-    @Test public void testPOST() {
+    @Ignore
+    @Test void testPOST() {
         def http = newBuilder('https://api.twitter.com/1.1/statuses/')
 
         http.auth.oauth twitter.consumerKey, twitter.consumerSecret,
@@ -317,6 +319,7 @@ class GAETest {
         }
     }
 
+    @Ignore
     @Test public void testAuth() {
         def http = newBuilder( 'http://test.webdav.org' )
 
@@ -342,6 +345,7 @@ class GAETest {
         }
     }
 
+    @Ignore
     @Test public void testCatalog() {
         def http = newBuilder( 'http://weather.yahooapis.com/forecastrss' )
 

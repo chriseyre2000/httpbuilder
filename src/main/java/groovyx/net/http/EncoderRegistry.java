@@ -186,7 +186,7 @@ public class EncoderRegistry implements Iterable<Map.Entry<String,Closure>> {
             data = new BufferedReader( (Reader)data );
         if ( data instanceof BufferedReader ) {
             StringWriter out = new StringWriter();
-            DefaultGroovyMethods.leftShift( out, (BufferedReader)data );
+            StreamHelper.leftShift( out, (BufferedReader)data );
 
             data = out;
         }

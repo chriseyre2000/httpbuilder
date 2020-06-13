@@ -31,7 +31,7 @@ import org.apache.http.conn.ConnectTimeoutException
 /**
  * @author tnichols
  */
-public class AsyncHTTPBuilderTest {
+    class AsyncHTTPBuilderTest {
 
     @Test public void testAsyncRequests() {
         def http = new AsyncHTTPBuilder( poolSize : 4,
@@ -89,6 +89,7 @@ public class AsyncHTTPBuilderTest {
         http.shutdown()
     }
 
+    @Ignore
     @Test public void testPostAndDelete() {
         def http = new AsyncHTTPBuilder(uri:'https://api.twitter.com/1.1/statuses/')
 

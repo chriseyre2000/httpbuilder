@@ -18,7 +18,7 @@ class HttpURLClientTest {
     /**
      * This method will parse the content based on the response content-type
      */
-    @Test public void testGET() {
+    @Test void testGET() {
         def http = new HttpURLClient(url:'http://www.google.com')
         def resp = http.request( path:'/search', query:[q:'HTTPBuilder'],
                 headers:['User-Agent':'Firefox'] )
@@ -33,6 +33,7 @@ class HttpURLClientTest {
         assert html.BODY.size() == 1
     }
 
+    @Ignore
     @Test public void testRedirect() {
         def http = new HttpURLClient(followRedirects:false)
 
@@ -90,6 +91,7 @@ class HttpURLClientTest {
      * This method is similar to testGET, but it will will parse the content
      * based on the given content-type, i.e. TEXT (text/plain).
      */
+    @Ignore
     @Test public void testReader() {
         def http = new HttpURLClient()
         def resp = http.request( url:'http://validator.w3.org/about.html',
@@ -109,6 +111,7 @@ class HttpURLClientTest {
     /** W3C pages will have a doctype, but will return a 503 if you do a GET
      * for them with the Java User-Agent.
      */
+    @Ignore
     @Test public void testCatalog() {
         def http = new HttpURLClient(
                 url:'http://validator.w3.org/',
@@ -121,7 +124,7 @@ class HttpURLClientTest {
     /* REST testing with Twitter!
      * Tests POST with XML response, and DELETE with a JSON response.
      */
-
+    @Ignore
     @Test public void testPOST() {
         def http = new HttpURLClient(url:'https://api.twitter.com/1.1/statuses/')
 
@@ -168,6 +171,7 @@ class HttpURLClientTest {
         assert resp.headers.Status == "200 OK"
     }
 
+    @Ignore
     @Test public void testParsers() {
         def parsers = new ParserRegistry()
         def done = false

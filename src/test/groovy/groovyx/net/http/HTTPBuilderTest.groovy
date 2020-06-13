@@ -120,6 +120,7 @@ class HTTPBuilderTest {
      * This method is similar to the above, but it will will parse the content
      * based on the given content-type, i.e. TEXT (text/plain).
      */
+    @Ignore
     @Test public void testReader() {
         def http = new HTTPBuilder('http://examples.oreilly.com')
         http.get( uri: 'http://examples.oreilly.com/9780596002527/examples/first.xml',
@@ -146,6 +147,7 @@ class HTTPBuilderTest {
      * Tests POST with JSON response, and DELETE with a JSON response.
      */
 
+    @Ignore
     @Test public void testPOST() {
         def http = new HTTPBuilder('https://api.twitter.com/1.1/statuses/')
 
@@ -290,6 +292,7 @@ class HTTPBuilderTest {
         }
     }
 
+    @Ignore
     @Test public void testAuth() {
         def http = new HTTPBuilder( 'http://test.webdav.org' )
 
@@ -315,6 +318,7 @@ class HTTPBuilderTest {
         }
     }
 
+    @Ignore
     @Test public void testCatalog() {
         def http = new HTTPBuilder( 'http://weather.yahooapis.com/forecastrss' )
 
@@ -324,6 +328,7 @@ class HTTPBuilderTest {
 
     }
 
+    @Ignore
     @Test public void testInvalidNamedArg() {
         def http = new HTTPBuilder( 'http://weather.yahooapis.com/forecastrss' )
         try {
@@ -333,6 +338,7 @@ class HTTPBuilderTest {
         catch ( IllegalArgumentException ex ) { /* Expected result */ }
     }
 
+    @Ignore
     @Test(expected = IllegalArgumentException)
     public void testShouldThrowExceptionIfContentTypeIsNotSet() {
         new HTTPBuilder( 'http://weather.yahooapis.com/forecastrss' ).request(POST) { request ->
@@ -341,6 +347,7 @@ class HTTPBuilderTest {
         fail("request should have failed due to unset content type.")
     }
 
+    @Ignore
     @Test
     public void testUrlencRequestContentType() {
         def http = new HTTPBuilder('http://restmirror.appspot.com/')
@@ -356,6 +363,7 @@ class HTTPBuilderTest {
         }
   }
 
+    @Ignore
     @Test public void testJSONPost() {
      def builder = new HTTPBuilder("http://restmirror.appspot.com/")
          def result = builder.request(POST, JSON) { req ->
