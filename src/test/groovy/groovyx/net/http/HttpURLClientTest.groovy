@@ -235,6 +235,7 @@ class HttpURLClientTest {
         catch ( IllegalArgumentException ex ) { /* Expected exception */ }
     }
 
+    @Ignore
     @Test(expected = SocketTimeoutException)
     void testTimeout() {
         new HttpURLClient(url: 'https://www.google.com/').request(timeout: 1)
