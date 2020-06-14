@@ -33,7 +33,7 @@ import org.apache.http.conn.ConnectTimeoutException
  */
     class AsyncHTTPBuilderTest {
 
-    @Test public void testAsyncRequests() {
+    @Test void testAsyncRequests() {
         def http = new AsyncHTTPBuilder( poolSize : 4,
                         uri : 'http://hc.apache.org',
                         contentType : ContentType.HTML )
@@ -126,8 +126,8 @@ import org.apache.http.conn.ConnectTimeoutException
         http.shutdown()
     }
 
-
-    @Test public void testTimeout() {
+    @Ignore
+    @Test void testTimeout() {
         def http = new AsyncHTTPBuilder( uri:'http://netflix.com',
                 contentType: HTML, timeout:2 ) // 2ms to force timeout
 
